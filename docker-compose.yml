@@ -5,6 +5,6 @@ services:
     build: ./
     restart: always
     working_dir: /home/runner/actions
-    entrypoint: bash -c "./config.sh --url $$REPO_URL --token $$ACTIONS_TOKEN && ./run.sh"
+    entrypoint: bash -c "./config.sh remove --token $$ACTIONS_TOKEN && ./config.sh --url $$REPO_URL --token $$ACTIONS_TOKEN && ./run.sh"
     env_file:
       - .env
