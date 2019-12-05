@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  runner:
+    build: ./
+    restart: always
+    working_dir: /home/runner/actions
+    entrypoint: bash -c "./config.sh --url $$REPO_URL --token $$ACTIONS_TOKEN && ./run.sh"
+    env_file:
+      - .env
